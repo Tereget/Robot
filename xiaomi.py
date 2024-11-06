@@ -19,6 +19,7 @@ def make_graph():
     return fig
 
 def make_gif(cnt, mx, my, x, y, rdir):
+    print(mx, my, x, y)
     frames = []
     mx, my = round(mx), round(my)
     x, y = round(x + mx), round(y + my)
@@ -112,7 +113,7 @@ class RobotPosition:
 
     def movement(self, x, y, rdir):
         v1, v2 = self.args['sensor'][2], [x, y]
-        mx, my = map(int, self.args['mid'])
+        mx, my = self.args['mid'][0], self.args['mid'][1]
         mid = self.args['mid']
         x, y = x - mx, y - my
         v1, v2 = np.subtract(v1, mid), np.subtract(v2, mid)
