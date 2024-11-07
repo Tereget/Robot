@@ -19,7 +19,6 @@ def make_graph():
     return fig
 
 def make_gif(cnt, mx, my, x, y, rdir):
-    print(mx, my, x, y)
     frames = []
     mx, my = round(mx), round(my)
     x, y = round(x + mx), round(y + my)
@@ -128,7 +127,7 @@ class RobotPosition:
         b = np.matmul(T, np.transpose(v1))
         deg *= -1
         a, b = np.subtract(v2, a), np.subtract(v2, b)
-        a, b = abs(a[0]) + abs(a[1]), abs(b[0]) + abs(b[1])
+        a, b = np.linalg.norm(a), np.linalg.norm(b)
         if a < b:
             k = -1
         else:
@@ -148,3 +147,4 @@ class RobotPosition:
             fig.savefig(f'pos_rob_{i+cnt_t}.png')
             plt.close(fig)
         make_gif(cnt_m + cnt_t, mx, my, x, y, rdir)
+        
