@@ -18,7 +18,9 @@ if __name__ == "__main__":
         if numb == '1':
             work.turn(float(input('Число градусов: ')))
         elif numb == '2':
-            work.position(int(input('Коорд. X: ')), int(input('Коорд. Y: ')))
+            work.args['mid'][0]
+            work.position(int(input('Коорд. X: ')) - work.args['mid'][0], 
+                          int(input('Коорд. Y: ')) - work.args['mid'][1])
         elif numb == '3':
             work.writing_coords()
         elif numb == '4':

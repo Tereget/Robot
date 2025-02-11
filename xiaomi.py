@@ -82,7 +82,7 @@ class RobotPosition:
             mass = [(rx[i], ry[i]) for i in range(len(rx))]
             laser = plt.Polygon(mass, color='red', fill=True)
             ax.add_patch(laser)
-        plt.title('Димон чёрт', loc='center')
+        plt.title('Система координат 2D', loc='center')
         return fig
 
     def turn(self, deg):
